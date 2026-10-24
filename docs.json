@@ -1,41 +1,71 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "palm",
+  "name": "Appliance Enumeration Guide",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#112550",
+    "light": "#0051FF",
+    "dark": "#112550"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/images/blue_advad_logo.webp",
+    "dark": "/images/blue_advad_logo.webp"
+  },
   "navigation": {
-    "pages": [
+    "groups": [
       {
-        "group": "Getting Started",
+        "group": "Start here",
         "pages": [
           "index",
-          "quickstart"
+          "getting-started",
+          "roles/overview"
+        ]
+      },
+      {
+        "group": "Role guides",
+        "pages": [
+          "roles/supervisor",
+          "roles/admin",
+          "roles/super-admin"
+        ]
+      },
+      {
+        "group": "Fieldwork",
+        "pages": [
+          "fieldwork/projects-and-tasks",
+          "fieldwork/forms-and-submissions",
+          "fieldwork/approvals",
+          "fieldwork/verifications",
+          "fieldwork/sos-incidents"
+        ]
+      },
+      {
+        "group": "Administration",
+        "pages": [
+          "administration/project-builder",
+          "administration/team-management",
+          "administration/assignments",
+          "administration/analytics-and-exports"
+        ]
+      },
+      {
+        "group": "Settings",
+        "pages": [
+          "settings"
+        ]
+      },
+      {
+        "group": "Help",
+        "pages": [
+          "help/troubleshooting",
+          "help/glossary"
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/blue_advad_logo.webp",
+    "dark": "/images/blue_advad_logo.webp"
   },
   "navbar": {
     "links": [
