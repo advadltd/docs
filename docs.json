@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "palm",
-  "name": "Appliance Enumeration Guide",
+  "name": "Advad Enumeration Guide",
   "colors": {
     "primary": "#112550",
     "light": "#0051FF",
@@ -97,5 +97,15 @@
       "github": "https://github.com/mintlify",
       "linkedin": "https://linkedin.com/company/mintlify"
     }
+  },
+  "description": "Guide on how to use the Applications",
+  "background": {
+    "color": {
+      "dark": "#000000"
+    }
+  },
+  "appearance": {
+    "default": "light",
+    "strict": false
   }
 }
