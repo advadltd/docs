@@ -1,46 +1,192 @@
 ---
 title: "Forms and submissions"
-description: "How to record appliances and send your work."
+description: "Complete forms, save drafts, work offline, sync records, and review your submissions."
 ---
 
-## Fill in a form
+Enumerators can collect and submit records from the mobile app or the web application. Choose your platform below for the complete process.
 
-<Steps>
-  <Step title="Open a task">
-    Tap the task, then tap **Start** or **Fill form**.
-  </Step>
-  <Step title="Answer each question">
-    Examples: appliance type, how many, whether it works.
-  </Step>
-  <Step title="Add more appliances">
-    Repeat for each appliance you find.
-  </Step>
-  <Step title="Review">
-    Check your answers before sending.
-  </Step>
-  <Step title="Submit">
-    Tap **Submit**.
-  </Step>
-</Steps>
+<Tabs>
+  <Tab title="Mobile app">
+    ## Before you begin
 
-## Working without internet
+    Sign in and connect to the internet before your first field visit. The app downloads your assigned projects, tasks, and form definitions so they are available when you lose connectivity.
 
-[CONFIRM: does the app save forms offline and send later?] If it does, you can fill in forms with no signal. They will send automatically once you are back online.
+    <Warning>
+      A form must have been downloaded to the phone before it can be opened offline. If the app asks you to connect, go online once and reopen the task.
+    </Warning>
 
-<Note>
-  Questions marked as required must be answered before you can submit.
-</Note>
+    ## Complete and submit a form
 
-## After you submit
+    <Steps>
+      <Step title="Open an assigned project">
+        From **Home**, select the project you are working on, then tap **View tasks**.
 
-Your supervisor will review your form. See [Approvals](/fieldwork/approvals).
+        <img
+          src="/images/Screenshot_1792830088-1.png"
+          alt="Screenshot 1792830088"
+          title="Screenshot 1792830088"
+          className="mx-auto"
+          style={{ width:"44%" }}
+        />
 
-# Submissions
+        Alternatively navigate to the **Projects** tab to see all the projects you have been assigned to then tap **Start Project**
 
-Enumerators, Admins, and Supervisors can view the Submissions they made or connected with
+        <img
+          src="/images/image-8.png"
+          alt="Image"
+          title="Image"
+          className="mx-auto"
+          style={{ width:"35%" }}
+        />
+      </Step>
+      <Step title="Start the task">
+        Select an assigned task and tap **Start task**. The form opens at its first section.
 
-The submissions page include Filters where you can sort by Projects, task, status e.t.c
+        <img
+          src="/images/image-9.png"
+          alt="Image"
+          title="Image"
+          className="mx-auto"
+          style={{ width:"38%" }}
+        />
+      </Step>
+      <Step title="Complete each section">
+        Enter the requested information and move through the form one section at a time. Depending on the form, you may also be asked to capture your location or add evidence photos.
 
-![Screenshot 2026 10 24 At 09 59 05](/images/Screenshot-2026-10-24-at-09.59.05.png "Screenshot 2026 10 24 At 09 59 05")
+        Questions marked as required must be completed before you can continue or submit. Some questions may appear only after you select a particular answer.
+      </Step>
+      <Step title="Review your answers">
+        At the end of the form, tap **Review & submit**. On **Final Review**, check each section carefully. Select a section if you need to edit an answer.
+      </Step>
+      <Step title="Submit the record">
+        Tap **Submit**. The app first saves a safe copy on the phone, then sends the form and any evidence to the server when a connection is available.
+      </Step>
+      <Step title="Confirm its sync status">
+        Wait for **Submission complete** or check the record in **My Submissions**. A **Synced** label confirms that the server received it.
+      </Step>
+    </Steps>
 
-Taping on the submission, we can see what was submitted
+    ## Save and resume a draft
+
+    Your answers are autosaved on the phone while you work. If you leave an unfinished form, choose one of these options:
+
+    - **Continue editing** returns to the form.
+    - **Save draft & exit** keeps the answers on this phone so you can continue later.
+    - **Discard draft** permanently removes the unfinished local copy.
+
+    <img
+      src="/images/image-10.png"
+      alt="Image"
+      title="Image"
+      className="mx-auto"
+      style={{ width:"28%" }}
+    />
+
+    To continue a saved form, open **My Submissions**, find the record marked **Resume**, and tap it. You can also resume the current draft from its card on **Home**. Review any previously entered answers, finish the remaining sections, and submit normally.
+
+    <Note>
+      An unfinished draft has not been submitted. It remains on the device until you finish and submit it, sync it successfully, or delete it.
+    </Note>
+
+    ## Work offline
+
+    You can fill forms without internet access after the assigned task and its form have been downloaded to the phone.
+
+    While offline:
+
+    - answers continue to autosave locally;
+    - drafts can be closed and resumed on the same phone;
+    - location and evidence photos can be added when the form requests them; and
+    - tapping **Submit** completes the form locally and places it in the sync queue.
+
+    A completed offline record is shown as **To Sync** or **Sync now**. It is safe on the phone, but it has not reached the server yet. When connectivity returns, allow the app to sync. If manual sync is available, open **My Submissions** and tap **Sync now**, or use **Sync All** to send every waiting record.
+
+    Keep the app installed and do not clear its data while records are waiting to sync. Evidence photos may take longer than answers to upload, especially on a slow connection.
+
+    <Tip>
+      Before leaving an area with connectivity, open the projects and tasks you expect to use. After fieldwork, check the **To Sync** tab before signing out or changing devices.
+    </Tip>
+
+    ## See your drafts and submissions
+
+    Open **My Submissions** from **Home** or the app navigation. The list combines records saved on the phone with records already received by the server.
+
+    - **All** shows drafts, records waiting to sync, and synced submissions.
+    - **To Sync** shows completed records that still need to reach the server.
+    - **Synced** shows records successfully received by the server.
+    - **Resume** identifies an unfinished draft; tap it to continue the form.
+    - **Sync now** identifies a completed record awaiting upload; tap it to retry.
+
+    <img
+      src="/images/image-12.png"
+      alt="Image"
+      title="Image"
+      className="mx-auto"
+      style={{ width:"28%" }}
+    />
+
+    Tap any record to see its answers, evidence, reference, dates, and current status. Pull down on the list to refresh it when you are online.
+
+    <Warning>
+      Delete a draft only when you are certain it is no longer needed. Deleting an unsynced draft removes that copy from the phone.
+    </Warning>
+
+    ## If a submission does not sync
+
+    1. Confirm that the phone has a working internet connection.
+    2. Open **My Submissions** and select **To Sync**.
+    3. Tap **Sync now** on the record, or **Sync All** if several records are waiting.
+    4. Keep the app open while evidence photos upload.
+    5. If the record shows **Action required**, open its details and read the server message before trying again or contacting your supervisor.
+  </Tab>
+  <Tab title="Web">
+    ## Complete and submit a form
+
+    <Steps>
+      <Step title="Sign in">
+        Open the web application in a supported browser and sign in with your enumerator account. 
+      </Step>
+      <Step title="Open your assignment">
+        Go to your assigned projects or tasks, select the correct project, and open the task you want to complete.
+      </Step>
+      <Step title="Start the form">
+        Tap **Collect**. Confirm that you are completing the correct task before entering respondent or site information.
+
+        ![Screenshot 2026 10 25 At 20 57 56](/images/Screenshot-2026-10-25-at-20.57.56.png "Screenshot 2026 10 25 At 20 57 56")
+      </Step>
+      <Step title="Complete every section">
+        Answer the questions in order. Complete all required fields and add any requested location or evidence. Use **Continue** to move between sections.
+
+        ![Screenshot 2026 10 25 At 20 58 04](/images/Screenshot-2026-10-25-at-20.58.04.png "Screenshot 2026 10 25 At 20 58 04")
+      </Step>
+      <Step title="Review and correct answers">
+        Open the review step and check the complete record. Return to any section that needs a correction.
+      </Step>
+      <Step title="Submit">
+        Select **Submit** once the record is complete. Keep the page open until the application confirms that the submission was received.
+      </Step>
+    </Steps>
+
+    ## Drafts on the web
+
+    If the web form offers **Save draft**, use it before leaving an incomplete form. Return to your drafts or submissions list and select the draft to continue it. A draft is not a completed submission and will not enter the review process until you finish the form and select **Submit**.
+
+    <Warning>
+      The web application requires an internet connection. Do not rely on an open browser tab as an offline copy, and do not close or refresh the page while a save or submission is in progress.
+    </Warning>
+
+    ## See your submissions
+
+    Open **Submissions** or **My Submissions** in the web navigation. Use the available status filters to find drafts, submitted records, or records that have progressed through review. Select a record to inspect its answers, evidence, reference number, submission date, and status.
+
+    If a newly submitted record is not visible, refresh the list once. If the form never displayed a success confirmation, reopen the draft or contact your supervisor before entering the same record again.
+  </Tab>
+</Tabs>
+
+## What happens after submission
+
+Once a synced record reaches the server, an authorized supervisor can review it. Its status may change as it moves through the review and verification process. See [Approvals](/fieldwork/approvals) for the next stage.
+
+<Info>
+  Saving a draft, completing a form, and syncing it are different steps. A record is fully submitted only when it appears as **Synced** on mobile or the web application confirms receipt.
+</Info>

@@ -3,28 +3,108 @@ title: "Admin Guide"
 description: "How to set up projects, forms and teams."
 ---
 
-You prepare everything the field team needs, then keep an eye on progress.
+Admins operate the platform across all client Projects. They prepare fieldwork, manage people and assignments, review records, respond to safety incidents, and monitor results.
 
-## What you can do
+## What an Admin can do
 
-- Create projects and forms with the [Project builder](/administration/project-builder).
-- Add people and manage the team in [Team management](/administration/team-management).
-- Give work to people in [Assignments](/administration/assignments).
-- View progress and download reports in [Analytics and exports](/administration/analytics-and-exports).
+| Area | Admin abilities |
+| --- | --- |
+| **Projects** | Create and edit Project Types, tasks, forms, and client Projects; publish, deactivate, reactivate, and delete eligible items |
+| **Assignments** | Assign published tasks, remove assignments, and reinstate revoked assignments |
+| **Team** | Create and manage Enumerators and Supervisors, change field roles, and manage reporting lines |
+| **Submissions** | View records globally, approve submitted records, filter results, and export data |
+| **Verifications** | Create comparisons and confirm verified records |
+| **SOS** | Receive, acknowledge, and resolve safety incidents |
+| **Analytics** | View global collection and workflow metrics |
 
-## Setting up a new project
+## Admin limits
+
+An Admin cannot:
+
+- Create, deactivate, delete, or otherwise manage another Admin account.
+- Create or manage the Super Admin account.
+- Archive a Project or Project Type; archiving is reserved for the Super Admin.
+- Collect a field record without an active task assignment.
+- Edit a finalized submission or a published form version.
+
+## Recommended daily routine
 
 <Steps>
-  <Step title="Build the project and form">
-    Decide what information to collect.
+  <Step title="Review urgent work">
+    Open [**SOS incidents**](/fieldwork/sos-incidents) first and respond to any open alerts.
   </Step>
-  <Step title="Add your team">
-    Invite supervisors and enumerators.
+  <Step title="Process waiting records">
+    Open [Approvals](/fieldwork/approvals), review submitted Enumerator records, and approve only complete and credible work.
   </Step>
-  <Step title="Assign the work">
-    Share places or tasks among your enumerators.
+  <Step title="Check operations">
+    Review **Dashboard** and [**Analytics**](/administration/analytics-and-exports) for submission volume, statuses, Project activity, and open SOS incidents.
   </Step>
-  <Step title="Track progress">
-    Check the dashboard regularly.
+  <Step title="Maintain access and workload">
+    Update [**Team**](/administration/team-management) reporting lines and task [**Assignments**](/administration/assignments) when staff or Project scope changes.
   </Step>
 </Steps>
+
+## Set up new fieldwork
+
+Use this order:
+
+1. Create the reusable Project Type.
+2. Add its tasks.
+3. Build, review, and publish each form.
+4. Publish each task and the Project Type.
+5. Create the client Project and attach the required work.
+6. Publish the client Project.
+7. Create team accounts if needed.
+8. Assign the published tasks.
+9. Ask the assigned users to confirm the work appears under **Projects**.
+
+See the **Manage projects**, **Team management**, and **Assignments** guides for detailed steps.
+
+## Approve a submission
+
+<Steps>
+  <Step title="Open Approvals">
+    The page lists submitted Enumerator records waiting for review.
+  </Step>
+  <Step title="Open the record">
+    Review the collector, task, form version, answers, times, GPS, and photo evidence.
+  </Step>
+  <Step title="Check completeness and credibility">
+    Confirm the record follows the task instructions and that evidence matches the reported asset or location.
+  </Step>
+  <Step title="Approve">
+    Return to the approval list and select **Approve** only when the record is acceptable.
+  </Step>
+</Steps>
+
+<Warning>
+  The app does not provide a return-for-editing workflow for finalized records. If new collection is required, arrange a new submission.
+</Warning>
+
+## Manage a verification
+
+1. Open **Verifications**.
+2. Enter the approved source submission UUID and the independent verification submission UUID.
+3. Select **Create request**.
+4. Open the comparison and review every original and verification value.
+5. Add optional reviewer notes and select **Confirm verified** when justified.
+
+## Respond to an SOS
+
+1. Open the SOS incident and review the person's location, Project, task, and description.
+2. Select **Acknowledge incident** to show that a responder has taken ownership.
+3. Coordinate the real-world response; the app does not replace emergency services.
+4. Add a clear resolution note and select **Mark resolved** after the situation is handled.
+
+## Data and account safety
+
+- Give every person an individual account.
+- Assign the minimum work needed.
+- Prefer deactivation over deletion when a person may return.
+- Preserve published form versions and finalized submissions as historical records.
+- Export only information needed for authorized work and store it securely.
+- Review high-impact configuration changes carefully before publishing.
+
+<Tip>
+  When a user reports missing work, check the complete chain: active account → active assignment → published Project → published Project Type → included published task → published form.
+</Tip>

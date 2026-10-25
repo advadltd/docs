@@ -3,25 +3,134 @@ title: "Supervisor Guide"
 description: "How to guide your team and check their work."
 ---
 
-You look after a group of enumerators and make sure the information they collect is correct.
+Supervisors oversee fieldwork within their assigned Projects. They review their team's submissions, monitor activity, collect records when assigned, and respond to safety incidents.
 
-## What you can do
+## What a Supervisor can do
 
-- See which tasks your team has completed.
-- **Review and approve** submitted forms, or send them back for correction. [Learn more](/fieldwork/approvals).
-- Carry out **verifications** to confirm records are accurate. [Learn more](/fieldwork/verifications).
-- Respond to **SOS alerts** from your team. [Learn more](/fieldwork/sos-incidents).
+| Area | Supervisor abilities |
+| --- | --- |
+| **Projects** | View assigned Projects and tasks, preview forms, and review visible task records |
+| **Collection** | Collect records for tasks directly assigned to the Supervisor |
+| **Submissions** | View records within the assigned Project scope, filter them, and export matching data |
+| **Approvals** | Review and approve submitted Enumerator records in the Supervisor's scope |
+| **Verifications** | Create, review, and confirm comparisons within assigned Projects |
+| **SOS** | Receive and respond to alerts from direct-report Enumerators |
+| **Analytics** | View metrics limited to the Supervisor's permitted Projects |
 
-## A typical day
+## Supervisor limits
+
+A Supervisor cannot:
+
+- Create or manage Projects, Project Types, tasks, or forms.
+- Create accounts, change roles, or change reporting lines.
+- Create, remove, or reinstate task assignments.
+- Review or confirm verification requests outside the assigned Project scope.
+- View records outside the assigned Project scope.
+- Collect a task without a direct active assignment.
+- Edit a finalized submission.
+
+Contact an Admin when configuration, accounts, or assignments need to change.
+
+## Recommended daily routine
 
 <Steps>
-  <Step title="Check new submissions">
-    Open the list of forms waiting for review.
+  <Step title="Check SOS incidents">
+    Respond immediately to any alert from a direct-report Enumerator [SOS Incidents](/roles/supervisor).
   </Step>
-  <Step title="Approve or send back">
-    Approve good work. If something is missing or wrong, send it back with a short note.
+  <Step title="Review assigned Projects">
+    Open [**Projects**](/fieldwork/projects-and-tasks) and check current tasks, records, and field activity.
   </Step>
-  <Step title="Follow up">
-    Check in with enumerators who are behind.
+  <Step title="Process Approvals">
+    Review waiting Enumerator submissions and [approve](/fieldwork/approvals) only complete, credible records.
+  </Step>
+  <Step title="Monitor progress">
+    Use **Dashboard**, **Analytics**, and submission filters to find missing, delayed, or unusual work.
+  </Step>
+  <Step title="Follow up with the team">
+    Resolve field questions and report account, assignment, or form problems to an Admin.
   </Step>
 </Steps>
+
+## Approve an Enumerator record
+
+<Steps>
+  <Step title="Open Approvals">
+    Select the submitted record you want to review.
+  </Step>
+  <Step title="Confirm its identity">
+    Check the Project, task, reference, collector, collection time, and form version.
+  </Step>
+  <Step title="Review the answers">
+    Check required and conditional answers for completeness and internal consistency.
+  </Step>
+  <Step title="Review evidence">
+    Open photo attachments and check capture details, GPS coordinates, and recorded address when available.
+  </Step>
+  <Step title="Approve carefully">
+    Select **Approve** only when the record is acceptable and belongs to your permitted Project scope.
+  </Step>
+</Steps>
+
+<Warning>
+  Approval accepts a finalized record. There is no return-for-editing action. If more work is required, ask the Enumerator to make a new submission and notify an Admin when necessary.
+</Warning>
+
+## Collect your own record
+
+A Supervisor can collect only when an Admin has assigned the task directly to them.
+
+1. Open **Projects** and choose the assigned Project.
+2. Select **Collect** beside the assigned task.
+3. Complete every stage and required evidence.
+4. Save a draft if the work is incomplete.
+5. Review and submit the record when finished.
+
+Supervisor submissions enter the workflow with the authorized higher-role status defined by the app; they do not require the same Enumerator approval step.
+
+## Review a verification
+
+1. Open **Verifications**.
+2. To create a comparison, enter the approved source Network Assessment UUID and the finalized LV Network Assessment UUID, then select **Create request**.
+3. Open the request and compare the original and independent field values.
+4. Confirm that both records refer to the same asset and that the evidence supports the comparison.
+5. Add optional notes and select **Confirm verified** when the review is complete.
+
+You can perform these actions only within your assigned Project scope.
+
+## Respond to an SOS
+
+<Steps>
+  <Step title="Open the incident immediately">
+    Review who sent it, the time, coordinates, description, Project, and task context.
+  </Step>
+  <Step title="Acknowledge it">
+    Select **Acknowledge incident** so others know the alert is being handled.
+  </Step>
+  <Step title="Coordinate the response">
+    Use **Open location in Maps** when useful and contact the person or emergency responders through the approved safety process.
+  </Step>
+  <Step title="Resolve it">
+    After the situation is handled, enter a clear resolution note and select **Mark resolved**.
+  </Step>
+</Steps>
+
+<Warning>
+  The SOS feature does not replace local emergency services. If delivery is uncertain or danger is immediate, use direct emergency communication.
+</Warning>
+
+## Monitor and export work
+
+Open **Submissions** to filter by Project, Project Type, task, status, dates, equipment type, collector ID, or search text. Select **Apply filters** before exporting. Exports include all matching records within your permitted scope, not only the current page.
+
+Use **Analytics** to review visible submission totals, workflow statuses, activity by Project or task, and open SOS incidents.
+
+## When to contact an Admin
+
+Contact an Admin when:
+
+- A team member cannot sign in or needs an account change.
+- A Project, task, or form is missing or incorrect.
+- An assignment is missing, expired, or should be removed.
+- A published form needs to change.
+- A verification belongs to a Project outside your assigned scope or needs administrative investigation.
+- A record or export appears outside the expected scope.

@@ -5,10 +5,49 @@ description: "Create a project and the form your team will use."
 
 <Steps>
   <Step title="Create a project">
-    Give it a clear name and short description.
+    Navigate to the Project Builder page from the Sidebar. 
+
+    This page loads all the created client projects and the project types
+
+    <img
+      src="/images/image-6.png"
+      alt="Image"
+      title="Image"
+      style={{ width:"79%" }}
+    />
+
+    Click on the **New Project** button to create a new project
+
+    Fill the project information and click on the **Save Draft** button.
+
+    <img
+      src="/images/Screenshot-2026-10-24-at-14.08.36.png"
+      alt="Screenshot 2026 10 24 At 14 08 36"
+      title="Screenshot 2026 10 24 At 14 08 36"
+      style={{ width:"72%" }}
+    />
+
+    This would save the Project. 
+
+    To manage the project, you can decide to manage the tasks and the Project types created with the projects
+
+    ![Image](/images/image-7.png "Image")
   </Step>
   <Step title="Build the form">
-    Add questions such as appliance type, quantity, condition and power rating.
+    Navigate to the  Reusable Project Types and  use the **Open Project Type Builder** for the particular type you want to manage.
+
+    <img
+      src="/images/Screenshot-2026-10-24-at-14.44.30.png"
+      alt="Screenshot 2026 10 24 At 14 44 30"
+      title="Screenshot 2026 10 24 At 14 44 30"
+      style={{ width:"79%" }}
+    />
+
+    This opens the project type page where the admin can manage the Tasks under the Project Type e.g Customer Enumeration.
+
+    ![Screenshot 2026 10 24 At 14 51 46](/images/Screenshot-2026-10-24-at-14.51.46.png "Screenshot 2026 10 24 At 14 51 46")
+
+    Clicking on the **Build Form ** opens a form builder interface
   </Step>
   <Step title="Choose question types">
     For example: text, number, choose-from-a-list, photo.
@@ -20,6 +59,310 @@ description: "Create a project and the form your team will use."
     Your team can now see it.
   </Step>
 </Steps>
+
+The **Project builder** is where an administrator prepares the work that appears in the field app. It uses four levels:
+
+| Level | What it represents | Example |
+| --- | --- | --- |
+| **Client Project** | A specific client engagement or work location | Ajah Meter Audit |
+| **Project Type** | A reusable operational template that can be attached to many client Projects | Metering Assessment |
+| **Task** | A unit of work inside a Project Type | Inspect customer meter |
+| **Form** | The questions and evidence collected for a task | Meter number, condition, GPS, and photos |
+
+<Note>
+  Only **Admin** and **Super Admin** users can open the Project builder and manage Projects. Only a Super Admin can archive a Project or Project Type.
+</Note>
+
+## Recommended setup order
+
+For a new workflow, configure the reusable content before creating the client engagement:
+
+<Steps>
+  <Step title="Create a Project Type">
+    Define the reusable template that will contain related tasks.
+  </Step>
+  <Step title="Add tasks">
+    Add each unit of field work to the Project Type.
+  </Step>
+  <Step title="Build and publish each task form">
+    A task cannot be published until it has a valid published form version.
+  </Step>
+  <Step title="Publish the tasks and Project Type">
+    Only published, active content is available in the operational catalog.
+  </Step>
+  <Step title="Create and publish a client Project">
+    Attach one or more Project Types and choose the tasks required for that engagement.
+  </Step>
+  <Step title="Assign tasks">
+    Give the published work to the team members who will collect data.
+  </Step>
+</Steps>
+
+## Open the Project builder
+
+1. Sign in as an **Admin** or **Super Admin**.
+2. Select **Project builder** in the main navigation.
+3. Use the **Client Projects** section for client engagements and **Reusable Project Types** for templates, tasks, and forms.
+
+## Create a Project Type
+
+Create a Project Type when a group of tasks and forms should be reusable across multiple client Projects.
+
+<Steps>
+  <Step title="Start a new Project Type">
+    In **Reusable Project Types**, select **New Project Type**.
+  </Step>
+  <Step title="Enter its details">
+    Enter a **Project Type name** and an optional **Description**. Use the description to explain the kind of work the template covers.
+  </Step>
+  <Step title="Review the stable slug">
+    The slug is generated from the name. It may contain lowercase letters, numbers, and hyphens. Treat it as a permanent identifier because it is used in links and stored records.
+  </Step>
+  <Step title="Create the draft">
+    Select **Create draft**. The app opens the new Project Type Builder.
+  </Step>
+</Steps>
+
+To change the name or description later, open the Project Type, select **Edit Project Type**, make the changes, and select **Save Project Type**.
+
+## Add tasks to a Project Type
+
+<Steps>
+  <Step title="Open the Project Type">
+    From **Reusable Project Types**, select **Open Project Type Builder** on the template you want to manage.
+  </Step>
+  <Step title="Add a task">
+    Select **Add task**, enter a clear **Task name** and optional **Description**, and then select **Add task** again. The app generates the task slug from its name.
+  </Step>
+  <Step title="Repeat for the remaining work">
+    Create a separate task for each independently assignable activity. Each task gets its own form and lifecycle.
+  </Step>
+</Steps>
+
+<Tip>
+  Name tasks as actions, such as “Inspect transformer” or “Verify customer meter.” This makes assignments easier to understand.
+</Tip>
+
+## Build a task form
+
+On the Project Type page, select **Build form** beside a task. The builder opens an editable draft version and provides four tabs: **Build**, **Preview**, **Review**, and **History**.
+
+### Add stages
+
+Stages split a long form into manageable sections.
+
+<Steps>
+  <Step title="Set the form title">
+    In the **Build** tab, replace the default title with a name the field team will recognize.
+  </Step>
+  <Step title="Configure the first stage">
+    Give the stage a title, a unique stage ID, and optional instructions. Stage IDs can contain only letters and numbers.
+  </Step>
+  <Step title="Add more stages">
+    Select **Add stage** as needed. Use the up and down arrows to reorder stages, or **Remove stage** to delete one.
+  </Step>
+</Steps>
+
+Every form must contain at least one stage, and every stage must contain at least one field before the form can be published.
+
+### Add and configure fields
+
+Select **Add field** inside a stage, then configure the field:
+
+| Setting | Purpose |
+| --- | --- |
+| **Label** | The question or prompt shown to the user |
+| **Stable key** | The unique data identifier stored with answers |
+| **Type** | The input control used to collect the answer |
+| **Automatic** | Marks the value as automatically generated rather than manually entered |
+| **Required** | Prevents the form from being completed without an answer |
+| **Help text** | Adds guidance beneath the field |
+| **Unit** | Describes the measurement, such as kVA or metres |
+
+The available field types are:
+
+| Field type | Use it for |
+| --- | --- |
+| **Text** | A short free-text value |
+| **Long text** | Notes or a detailed description |
+| **Number** | A numeric measurement or quantity |
+| **Date** | A calendar date |
+| **Single choice** | One value from a list of options |
+| **Multiple choice** | One or more values from a list |
+| **Yes / No** | A boolean response |
+| **GPS** | A geographic position |
+| **Photo** | Photo evidence; optionally set a minimum number of photos |
+| **Repeatable group** | A set of nested fields that can be completed multiple times |
+
+For **Single choice** and **Multiple choice**, enter one option per line. For a **Repeatable group**, select **Add nested field** and configure at least one child field.
+
+Use the field arrows to reorder a field, the duplicate button to copy it, or **Remove** to delete it.
+
+<Warning>
+  Keep stable keys unique and avoid changing them after a form has been used. A stable key identifies the answer in saved data, while the label is only the text shown to users.
+</Warning>
+
+### Add conditional questions
+
+Use **Show when** to display a field only when another answer meets a condition.
+
+1. Choose the controlling field under **Show when**.
+2. Choose **Equals**, **Does not equal**, **Includes**, or **Is one of**.
+3. Enter or select the comparison value. For **Is one of**, enter comma-separated values.
+4. Enable **Required when shown** if the conditional field must be completed whenever it appears.
+
+Conditional fields cannot depend on one another in a circular chain. The Review tab identifies invalid or missing references.
+
+### Save, preview, review, and publish
+
+<Steps>
+  <Step title="Save the draft">
+    Select **Save draft** regularly. The status beside the form version confirms whether the latest save succeeded.
+  </Step>
+  <Step title="Preview the field experience">
+    Open **Preview** and check the stage order, labels, help text, choices, conditional behavior, and required fields.
+  </Step>
+  <Step title="Review validation and changes">
+    Open **Review**. The app saves the draft, lists validation issues, and summarizes fields or stages that were added, removed, changed, or reordered.
+  </Step>
+  <Step title="Resolve every validation issue">
+    Return to **Build** and correct the reported path. A form cannot be published while validation issues remain.
+  </Step>
+  <Step title="Publish the form version">
+    Select **Publish version** and confirm. A published version is immutable; later edits are made in a new draft version.
+  </Step>
+</Steps>
+
+Open **History** to see every draft and published version, including publication and update times. You can permanently delete a draft version from this tab, but not a published version.
+
+<Warning>
+  Deleting a draft version cannot be undone.
+</Warning>
+
+## Publish reusable content
+
+Publish in this order:
+
+1. **Form** — from the form builder after validation passes.
+2. **Task** — return to the Project Type and select **Publish task**. The task must already have a published form.
+3. **Project Type** — select **Publish** on the Project Type page.
+
+Publishing makes an item active. If a task or Project Type is still a draft or is inactive, it will not be available as active work in the published catalog.
+
+## Create a client Project
+
+<Steps>
+  <Step title="Start the Project">
+    Return to **Project builder** and select **New Project**.
+  </Step>
+  <Step title="Enter Project details">
+    Enter the **Project name**, optional **Location**, and **Description**. Use the description for scope or field guidance.
+  </Step>
+  <Step title="Review the stable slug">
+    The slug is generated from the Project name. It accepts lowercase letters, numbers, and hyphens. Keep it stable once work begins.
+  </Step>
+  <Step title="Attach Project Types">
+    Under **Project Types and tasks**, check every reusable Project Type needed for the engagement.
+  </Step>
+  <Step title="Choose tasks">
+    Attached Project Types initially select all their tasks. Uncheck any task that is outside this Project's scope.
+  </Step>
+  <Step title="Create the draft">
+    Select **Create draft**. The app opens the new client Project page.
+  </Step>
+</Steps>
+
+<Note>
+  A client Project must have at least one attached Project Type before it can be published. For the Project to be useful to field teams, also ensure its Project Types, tasks, and forms are published.
+</Note>
+
+## Edit a client Project
+
+Open a card under **Client Projects**, then use the following controls:
+
+- Select **Edit Project** to change the Project name, location, or description, then select **Save Project**.
+- Select **Manage types** to attach or detach Project Types. In the multi-select list, select all types that should remain attached, then select **Save attached Project Types**.
+- Select **Manage tasks** to include or exclude tasks from the attached Project Types, then select **Save attached tasks**.
+- Select **Open** beside an attached Project Type to edit its reusable tasks and forms.
+
+<Tip>
+  If none of a Project Type's tasks are needed, detach the Project Type. Within an attached type, keep at least one task selected; an empty task selection is treated as using all tasks from that type.
+</Tip>
+
+Changes made to a reusable Project Type affect every client Project that uses it. Use the client Project's **Manage tasks** control when the change applies only to one engagement.
+
+## Publish a client Project
+
+1. Confirm that the correct Project Types and tasks are attached.
+2. Confirm that the required Project Types, tasks, and forms are published.
+3. Select **Publish** on the client Project page.
+4. Confirm the action.
+
+The Project status changes from **draft** to **published**, and it becomes available for task assignment.
+
+## Assign Project tasks
+
+After publishing, select **Assignments** in the main navigation.
+
+<Steps>
+  <Step title="Choose a team member">
+    Select an active team member. Super Admin users are not listed as assignment recipients.
+  </Step>
+  <Step title="Choose the client Project">
+    Select the published Project. Its available Project Types and tasks appear below.
+  </Step>
+  <Step title="Set an optional end date">
+    Leave the date empty for an open-ended assignment, or choose the final active date.
+  </Step>
+  <Step title="Select work">
+    Select an entire Project Type or choose individual tasks. Tasks already assigned to that user in the same Project are marked **Already assigned**.
+  </Step>
+  <Step title="Create the assignments">
+    Select **Assign selected tasks**. At least one task is required.
+  </Step>
+</Steps>
+
+To stop an assignment, select **Remove** in the assignments table and confirm. Existing records remain available. Select **Reinstate** to restore a revoked assignment.
+
+## Manage lifecycle and removal
+
+| Status or action | Meaning |
+| --- | --- |
+| **Draft** | Editable setup that has not been activated |
+| **Published** | Active and available to the operational catalog when its parent dependencies are also published |
+| **Inactive** | Temporarily unavailable; select **Reactivate** to publish it again |
+| **Archived** | Retired historical configuration; only a Super Admin can archive |
+| **Delete** | Permanently removes an eligible Project or Project Type |
+
+From a published Project or Project Type, select **Deactivate** to make it inactive. From an inactive item, select **Reactivate** to make it active again. A Super Admin can select **Archive** for a published or inactive item.
+
+<Warning>
+  Deleting a client Project or Project Type is permanent. The app blocks deletion when the item has assignment, submission, or SOS history. Deactivate or archive it instead. Archived items cannot be edited or deleted from the builder.
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The Project cannot be published">
+    Attach at least one Project Type. Then verify that the intended Project Types, tasks, and forms are published so the Project will contain active work.
+  </Accordion>
+
+  <Accordion title="A task cannot be published">
+    Open **Build form**, resolve all issues in **Review**, and publish the form version first. Then return to the Project Type and publish the task.
+  </Accordion>
+
+  <Accordion title="A Project or task is missing from Assignments">
+    Verify that the client Project, its Project Type, the task, and the task's form are all published and active. Also confirm that the task is included under **Manage tasks** for that client Project.
+  </Accordion>
+
+  <Accordion title="A save says the item changed elsewhere">
+    Another update changed the item's revision. Refresh the page, review the latest values, and apply your changes again.
+  </Accordion>
+
+  <Accordion title="Delete is blocked">
+    The Project or Project Type has assignments, submissions, or SOS history. Preserve that history by using **Deactivate** or, as a Super Admin, **Archive**.
+  </Accordion>
+</AccordionGroup>
 
 <Tip>
   Keep forms short. Fewer questions means faster work and fewer mistakes.

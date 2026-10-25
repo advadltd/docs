@@ -3,25 +3,122 @@ title: "Team Management"
 description: "Add people and control what they can do."
 ---
 
-## Add a person
+Use **Team** to manage the people who can sign in to the app. Each person should have their own account so their work and actions can be identified correctly.
+
+<Note>
+  Admins can manage Supervisor and Enumerator accounts. Only the Super Admin can create or fully manage Admin accounts. No user can create another Super Admin.
+</Note>
+
+## Understand the roles
+
+| Role | Main purpose |
+| --- | --- |
+| **Enumerator** | Collects records for assigned tasks and sees their own submissions |
+| **Supervisor** | Oversees assigned Projects, approves Enumerator records, and responds to team SOS alerts |
+| **Admin** | Manages Projects, forms, people, assignments, records, and operations globally |
+| **Super Admin** | Has all Admin abilities plus system-owner actions such as creating Admins and archiving |
+
+## Create an account
 
 <Steps>
   <Step title="Open Team">
-    Go to the team section.
+    Select **Team** from the main navigation, then select **Add account**.
+
+    ![Image](/images/image-13.png "Image")
   </Step>
-  <Step title="Add new member">
-    Enter their name and contact details.
+  <Step title="Enter the account ID">
+    Use a unique ID the person will remember. This is their sign-in ID.
   </Step>
-  <Step title="Choose a role">
-    Enumerator, Supervisor or Admin. See [Roles](/roles/overview).
+  <Step title="Enter the person's details">
+    Add the full name, a temporary password of at least eight characters, and an optional district.
   </Step>
-  <Step title="Send the login details">
-    Share them privately with the person.
+  <Step title="Choose the role">
+    Select **Enumerator** or **Supervisor**. A Super Admin can also select **Admin**.
+  </Step>
+  <Step title="Choose a direct Supervisor">
+    For an Enumerator, select the active Supervisor responsible for their work. This is required.
+  </Step>
+  <Step title="Create and hand over the account">
+    Select **Create account**. Share the account ID and temporary password privately with the user.
   </Step>
 </Steps>
 
-## Other things you can do
+<Warning>
+  Never create shared accounts. Do not send passwords in public groups or include them in reports.
+</Warning>
 
-- Change someone's role.
-- Deactivate a person who has left the project.
-- Reset a forgotten password. [CONFIRM]
+## Reassign an Enumerator
+
+Use reassignment when an Enumerator moves to a different Supervisor.
+
+1. Find the Enumerator in the team table.
+2. Choose the new person in **Supervisor / transition**.
+   ![Screenshot 2026 10 25 At 21 42 06](/images/Screenshot-2026-10-25-at-21.42.06.png "Screenshot 2026 10 25 At 21 42 06")
+3. Select **Reassign**.
+4. Wait for the success message and confirm the new Supervisor is displayed.
+
+## Promote an Enumerator
+
+1. Find an active Enumerator.
+2. Select **Promote**.
+3. Confirm the change to Supervisor.
+4. Review their Project assignments and reporting responsibilities.
+
+Promotion changes the person's role but does not automatically give them new Project assignments.
+
+## Demote a Supervisor
+
+<Steps>
+  <Step title="Reassign direct reports">
+    Move every active Enumerator who reports to this Supervisor to another active Supervisor.
+  </Step>
+  <Step title="Choose the person's new Supervisor">
+    In **Supervisor / transition**, select who will supervise the person after demotion.
+  </Step>
+  <Step title="Demote the account">
+    Select **Demote** and confirm. The account becomes an Enumerator account.
+  </Step>
+</Steps>
+
+<Note>
+  Demotion is blocked while the Supervisor still has active direct reports.
+</Note>
+
+## Deactivate or reactivate an account
+
+Use **Deactivate** when access should stop temporarily. The person can no longer sign in, but their records and history remain. Select **Reactivate** later to restore access.
+
+Before deactivation, review the person's active assignments and operational responsibilities. You cannot deactivate your own account or the Super Admin account.
+
+## Delete an account
+
+Deleting permanently disables sign-in for that account. Submitted records and photos remain and are marked as belonging to a deleted account.
+
+1. Confirm that permanent removal is the correct decision.
+2. Reassign any work or direct reports first.
+3. Select **Delete account** and carefully read the confirmation.
+4. Confirm the deletion.
+
+<Warning>
+  Account deletion cannot be reversed. Prefer **Deactivate** when the person may return.
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="I cannot create an Admin">
+    Only the Super Admin can create an Admin account. A regular Admin can create Supervisors and Enumerators.
+  </Accordion>
+
+  <Accordion title="I cannot create an Enumerator">
+    Make sure at least one active Supervisor exists and is selected as the Enumerator's direct Supervisor.
+  </Accordion>
+
+  <Accordion title="A Supervisor cannot be demoted">
+    Reassign all active direct reports first, then select the Supervisor who will manage the demoted user.
+  </Accordion>
+
+  <Accordion title="An action button is not shown">
+    The action may not be allowed for your role, for your own account, for the Super Admin, or for the account's current status.
+  </Accordion>
+</AccordionGroup>

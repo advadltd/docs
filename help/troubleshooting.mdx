@@ -3,32 +3,481 @@ title: "Troubleshooting"
 description: "Quick fixes for common problems."
 ---
 
-<AccordionGroup>
-  <Accordion title="I can't sign in">
-    Check your details for typos. Make sure you have internet. If it still fails, ask your admin to reset your password.
-  </Accordion>
+Choose the platform where the problem occurred.
 
-  <Accordion title="I can't see my tasks">
-    Pull down to refresh. If nothing appears, you may not have been assigned work yet. Ask your supervisor.
-  </Accordion>
+<Tabs>
+  <Tab title="Mobile app">
+    ## Start with these checks
 
-  <Accordion title="My form won't submit">
-    Check that every required question is answered. Then check your internet connection and try again.
-  </Accordion>
+    <Steps>
+      <Step title="Read the full message">
+        Keep the screen open and note the exact wording. It may identify a missing permission, required answer, assignment problem, or sync failure.
+      </Step>
+      <Step title="Check whether you are online">
+        Confirm whether the phone has a working connection. The app supports offline collection, but new assignments and completed submissions cannot reach the server until you reconnect.
+      </Step>
+      <Step title="Protect the local record">
+        If a form is open, use **Save draft & exit**. Do not create another record for the same work while the first copy is saved locally or waiting to sync.
+      </Step>
+      <Step title="Retry once">
+        Reopen the record from **My Submissions** and use **Resume** or **Sync now**, depending on its status.
+      </Step>
+      <Step title="Record useful details">
+        Note the Project, task, record reference, time, sync status, and error message. Take a screenshot if your organisation permits it.
+      </Step>
+    </Steps>
 
-  <Accordion title="The app is slow or frozen">
-    Close it fully and open it again. Make sure you have the latest version from the Play Store.
-  </Accordion>
+    <Warning>
+      Do not clear the app's data, uninstall the app, sign out, or change phones while drafts or submissions remain under **To Sync**. Unsynced records may exist only on that device.
+    </Warning>
 
-  <Accordion title="My form was sent back">
-    Open it, read the note from your supervisor, fix the problem and submit again.
-  </Accordion>
+    ## Sign-in problems
 
-  <Accordion title="I'm using an iPhone">
-    The iOS app is coming soon. Use the [web version](https://advadproject.zivahtechnologies.com/) for now.
-  </Accordion>
-</AccordionGroup>
+    <AccordionGroup>
+      <Accordion title="Invalid ID or password">
+        Check the account ID and password carefully. Use the password visibility control, confirm capital letters, and try once more. If it still fails, ask an Admin to verify the account ID or reset the password.
+      </Accordion>
 
-## Still stuck?
+      <Accordion title="This account has been deactivated">
+        The account cannot sign in until an authorised Admin or Super Admin reactivates it. Ask the administrator to review why access was removed.
+      </Accordion>
 
-Contact your supervisor or admin, or reach support at [ADD SUPPORT EMAIL / PHONE].
+      <Accordion title="The app returns to the sign-in screen">
+        The session may have expired. Sign in again when connected. If it happens repeatedly, note the time and connection type and report them to an Admin.
+      </Accordion>
+
+      <Accordion title="You need to sign out but records are waiting to sync">
+        Cancel sign-out, reconnect, and open **My Submissions**. Sync every record under **To Sync** first. Confirm that each one is marked **Synced** before signing out.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Missing Projects or tasks
+
+    <AccordionGroup>
+      <Accordion title="No Projects are shown">
+        Connect to the internet and refresh **Home**. If nothing appears, the user may have no active assignment. Ask an Admin to confirm that the account, assignment, Project, Project Type, task, and published form are all active.
+      </Accordion>
+
+      <Accordion title="A Project appears but the task is missing">
+        Refresh while online. An Admin should confirm that the exact task is included in the Project, published, active, and assigned to you.
+      </Accordion>
+
+      <Accordion title="There is no Start task action">
+        Viewing access does not automatically grant collection access. You need an active assignment for that task.
+      </Accordion>
+
+      <Accordion title="A recently assigned task is unavailable offline">
+        New assignments must be downloaded first. Connect once, refresh the app, and open the Project and task before returning offline.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Form problems
+
+    <AccordionGroup>
+      <Accordion title="The form will not open offline">
+        The form definition was not downloaded to this phone. Connect to the internet once, refresh your assignments, and reopen the task so the form can be cached.
+      </Accordion>
+
+      <Accordion title="The form will not submit">
+        Review every section for highlighted required fields. Recheck conditional questions that appeared after another answer changed, and confirm all required evidence was added.
+      </Accordion>
+
+      <Accordion title="An automatic field cannot be typed in">
+        This is expected. Automatic fields are read-only and are generated when the record is saved or submitted.
+      </Accordion>
+
+      <Accordion title="A question appears or disappears">
+        The question is conditional. Its visibility depends on an earlier answer. Review the form again after changing a response.
+      </Accordion>
+
+      <Accordion title="The wrong questions are shown">
+        Stop before submitting. Confirm the Project and task, then report the form title to an Admin. Connect and refresh the task before retrying; do not use an unrelated form.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Draft and sync problems
+
+    <AccordionGroup>
+      <Accordion title="An unfinished form disappeared">
+        Open **My Submissions** and select **All**. Look for a record marked **Resume**, or check the draft card on **Home**. Drafts are tied to the account and phone on which they were created.
+      </Accordion>
+
+      <Accordion title="A record says To Sync or Sync now">
+        The completed record is safe on the phone but has not reached the server. Reconnect, open **My Submissions**, and tap **Sync now**. Use **Sync All** if several records are waiting.
+      </Accordion>
+
+      <Accordion title="A record says Sync paused">
+        Your progress is safe. Check the connection and retry **Sync now**. Keep the app open if evidence photos are still uploading.
+      </Accordion>
+
+      <Accordion title="A record says Action required">
+        Open the submission details and read the server response. Correct the stated access or validation problem, or send the record reference and exact message to a Supervisor or Admin.
+      </Accordion>
+
+      <Accordion title="A synced submission is not visible">
+        Open **My Submissions**, select **All** or **Synced**, and pull down to refresh while online. Search using the record details or reference if available.
+      </Accordion>
+
+      <Accordion title="A draft is missing after changing phones">
+        Local drafts do not automatically move between phones. Return to the original phone, sign in with the same account, and sync the record. Do not clear the original app's data.
+      </Accordion>
+
+      <Accordion title="A duplicate record was created">
+        Do not submit or sync both copies. Keep the more complete record and report the duplicate reference to a Supervisor or Admin. Delete a local draft only when you are certain it is the unwanted copy.
+      </Accordion>
+    </AccordionGroup>
+
+    ## GPS problems
+
+    <Steps>
+      <Step title="Allow location access">
+        When prompted, allow the app to use the device location. Use precise location if the device offers that choice.
+      </Step>
+      <Step title="Turn on location services">
+        Open the phone settings and enable location services for the app.
+      </Step>
+      <Step title="Improve the signal">
+        Move to a safe place with a clearer view of the sky and retry the location action.
+      </Step>
+      <Step title="Check the recorded position">
+        Never guess coordinates or reuse a position from an unrelated location. Report persistent errors before submitting inaccurate data.
+      </Step>
+    </Steps>
+
+    ## Photo and evidence problems
+
+    <AccordionGroup>
+      <Accordion title="The camera or photo library will not open">
+        Enable camera or photo access for the app in the phone settings, then return to the form and try again.
+      </Accordion>
+
+      <Accordion title="The form says more photos are required">
+        Add enough photos to meet the minimum shown for that field. Required evidence must be present before the form can be completed.
+      </Accordion>
+
+      <Accordion title="Photos are taking a long time to sync">
+        Keep the app open and use a stable connection. Answers may be saved before large evidence files finish uploading; confirm the record becomes **Synced** before signing out.
+      </Accordion>
+
+      <Accordion title="The wrong photo was selected">
+        Correct it before final submission. A finalized record and its evidence cannot be edited through the normal workflow.
+      </Accordion>
+
+      <Accordion title="Evidence cannot be opened from a submission">
+        Reconnect, refresh the submission, and try again. If it still fails, send the record reference and evidence label to an Admin.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Submission and approval problems
+
+    <AccordionGroup>
+      <Accordion title="A finalized record cannot be edited">
+        This is expected. Final records preserve historical evidence. If more collection is required, follow your organisation's correction process or create a new submission when instructed.
+      </Accordion>
+
+      <Accordion title="A record cannot be approved">
+        Only a record with **Submitted** status can be approved. The reviewer also needs active access to its Project. Refresh while online and confirm the record has not already been approved or verified.
+      </Accordion>
+
+      <Accordion title="The wrong record was approved">
+        Do not try to alter the historical record. Note its reference and immediately notify an Admin so the operational correction can be decided.
+      </Accordion>
+    </AccordionGroup>
+
+    ## SOS problems
+
+    <Warning>
+      If anyone is in immediate danger, contact local emergency services and the response team directly. Do not wait for the app.
+    </Warning>
+
+    <AccordionGroup>
+      <Accordion title="Location permission is required">
+        Enable location services and allow location access for the app. If this cannot be done immediately, contact the Supervisor or emergency services directly.
+      </Accordion>
+
+      <Accordion title="SOS delivery was not confirmed">
+        Do not assume anyone received the alert. Contact your Supervisor or emergency services directly. The app keeps a queued alert on the phone and can retry when connectivity returns, so do not clear its data.
+      </Accordion>
+
+      <Accordion title="SOS alerts are waiting for delivery">
+        Reconnect when it is safe to do so and keep the app open while it retries the queued alerts. Confirm the app reports successful delivery.
+      </Accordion>
+
+      <Accordion title="No active SOS recipient is configured">
+        Contact an Admin directly. The Enumerator needs a valid direct Supervisor, or an active Admin recipient must be available.
+      </Accordion>
+
+      <Accordion title="An incident cannot be acknowledged or resolved">
+        It may already have been updated or may not be assigned to the current responder. Refresh the incident while online and check its activity timeline and your permissions.
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="Web">
+    ## Start with these checks
+
+    <Steps>
+      <Step title="Read the full message">
+        Keep the page open and note the exact wording. The message often identifies a missing permission, required answer, or connection problem.
+      </Step>
+      <Step title="Check the connection">
+        Confirm the device is online. If the connection is weak, do not repeatedly create new records or press the same action.
+      </Step>
+      <Step title="Retry once">
+        Refresh only after saving work when possible, then repeat the action once.
+      </Step>
+      <Step title="Record useful details">
+        Note the page, Project, task, record reference, time, and error message. Take a screenshot if your organisation permits it.
+      </Step>
+      <Step title="Contact the correct person">
+        Field users should contact their Supervisor or an Admin. Never send anyone your password.
+      </Step>
+    </Steps>
+
+    <Warning>
+      Do not clear browser data, uninstall the browser, or start duplicate records while an unsynchronised draft may still be stored on the device.
+    </Warning>
+
+    ## Sign-in problems
+
+    <AccordionGroup>
+      <Accordion title="Invalid ID or password">
+        Check the account ID and password carefully. Use the password visibility control to check typing, confirm capital letters, and try once more. If it still fails, ask an Admin to verify the account ID or change the password.
+      </Accordion>
+
+      <Accordion title="This account has been deactivated">
+        The account cannot sign in until an authorised Admin or Super Admin reactivates it. Ask the administrator to review why access was removed.
+      </Accordion>
+
+      <Accordion title="The app returns to the sign-in page">
+        The sign-in session may have expired. Sign in again. If it happens repeatedly, check connectivity and send the time and browser details to an Admin.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Missing Projects or tasks
+
+    If a Project or task does not appear, an Admin should check this complete chain:
+
+    1. The user's account is active.
+    2. The assignment is active, has not been removed, and has not passed its end date.
+    3. The client Project is published and active.
+    4. The required Project Type is attached, published, and active.
+    5. The task is included in the client Project, published, and active.
+    6. The task has an active published form.
+
+    <AccordionGroup>
+      <Accordion title="No Projects are shown">
+        The user probably has no active assignment. An Admin should check **Assignments** and confirm the Project publication chain above.
+      </Accordion>
+
+      <Accordion title="The Project appears but the task is missing">
+        Confirm that the exact task is assigned to the user and included under the client Project's **Manage tasks** selection.
+      </Accordion>
+
+      <Accordion title="There is no Collect or New record button">
+        Viewing access does not automatically grant collection access. The user needs a direct active assignment for that task.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Form problems
+
+    <AccordionGroup>
+      <Accordion title="The form will not open">
+        Confirm that the task has an active published form and that the task itself is published. Record the Project and task names for the Admin.
+      </Accordion>
+
+      <Accordion title="The form will not submit">
+        Review every stage for highlighted required fields. Recheck conditional questions that appeared after another answer changed, and confirm required photos have finished uploading.
+      </Accordion>
+
+      <Accordion title="An automatic field cannot be typed in">
+        This is expected. Automatic fields are read-only and are generated when the record is saved.
+      </Accordion>
+
+      <Accordion title="A question appears or disappears">
+        The field is conditional. Its visibility depends on another answer. Recheck the form after changing an earlier response.
+      </Accordion>
+
+      <Accordion title="The wrong questions are shown">
+        Stop before submitting. Confirm the Project and task, then report the form title and version to an Admin. Do not use an unrelated form to complete the work.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Draft and connection problems
+
+    <AccordionGroup>
+      <Accordion title="Save status is uncertain">
+        Keep the same page and draft. Reconnect, select **Save draft** once, and confirm that one record appears under **Submissions**. Do not start another record for the same work.
+      </Accordion>
+
+      <Accordion title="A draft is missing after changing devices">
+        Automatically saved answers may exist only in the original browser until a server draft is saved. Return to the original device and browser if possible, reconnect, and select **Save draft**.
+      </Accordion>
+
+      <Accordion title="A duplicate record was created">
+        Do not finalize both copies. Keep the more complete draft and report the duplicate reference to a Supervisor or Admin.
+      </Accordion>
+
+      <Accordion title="The app says an active assignment is required">
+        The assignment is missing, removed, expired, or belongs to a different task. Ask an Admin to check it before continuing.
+      </Accordion>
+    </AccordionGroup>
+
+    ## GPS problems
+
+    <Steps>
+      <Step title="Allow location access">
+        When prompted, allow the browser to use the device location.
+      </Step>
+      <Step title="Turn on device location services">
+        Check the phone or computer settings and make sure location services are enabled for the browser.
+      </Step>
+      <Step title="Improve the signal">
+        Move to a safe place with a clearer view of the sky and retry **Capture GPS**.
+      </Step>
+      <Step title="Use accurate manual coordinates if permitted">
+        Enter them as `latitude, longitude`. Never guess or copy coordinates from an unrelated location.
+      </Step>
+    </Steps>
+
+    ## Photo and evidence problems
+
+    <AccordionGroup>
+      <Accordion title="A photo will not upload">
+        Keep the draft open, check the connection, and retry **Save draft**. Do not submit until required evidence uploads successfully.
+      </Accordion>
+
+      <Accordion title="The form says more photos are required">
+        Add enough photos to meet the minimum shown for that field. Existing uploaded photos and newly selected photos both count after upload completes.
+      </Accordion>
+
+      <Accordion title="Evidence cannot be opened">
+        Refresh the submission and try again. Evidence links are protected and may expire; opening the attachment again requests a fresh link.
+      </Accordion>
+
+      <Accordion title="The wrong photo was selected">
+        Correct it before final submission. A finalized record and its evidence cannot be edited through the normal workflow.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Submission and approval problems
+
+    <AccordionGroup>
+      <Accordion title="A submission is missing">
+        Reset filters, search by its exact reference, and check the selected status and date basis. Your role may restrict which records you can see.
+      </Accordion>
+
+      <Accordion title="A finalized record cannot be edited">
+        This is expected. Final records preserve historical evidence. If more collection is required, create a new submission.
+      </Accordion>
+
+      <Accordion title="A record cannot be approved">
+        Only records with **Submitted** status can be approved. Supervisors also need active access to the record's Project. Already approved or verified records do not need approval again.
+      </Accordion>
+
+      <Accordion title="The wrong record was approved">
+        Do not attempt to alter the historical record. Record the reference and immediately notify an Admin so the operational correction can be decided.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Filters and exports
+
+    <AccordionGroup>
+      <Accordion title="The results do not match the filters">
+        Select **Apply filters** after every change. If a note says filters are pending, the table and export still use the previous filter set.
+      </Accordion>
+
+      <Accordion title="The date range is rejected">
+        The **From** date must be on or before the **To** date. Check the chosen date basis and remember that filtering uses UTC calendar dates.
+      </Accordion>
+
+      <Accordion title="Export buttons are disabled">
+        Apply pending filters and wait until matching records finish loading. Resolve any displayed filter error first.
+      </Accordion>
+
+      <Accordion title="The export has more rows than the screen">
+        This is expected. The table displays pages of results, while the export includes every record matching the applied filters.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Project builder problems
+
+    <AccordionGroup>
+      <Accordion title="A task cannot be published">
+        Build and publish a valid form version first. Open **Review** in the form builder and resolve every validation issue.
+      </Accordion>
+
+      <Accordion title="A client Project cannot be published">
+        Attach at least one Project Type. Also publish the intended Project Types, tasks, and forms so useful work appears after publication.
+      </Accordion>
+
+      <Accordion title="The page says the item changed elsewhere">
+        Another save updated the same item. Refresh, review the latest values, and apply the change again.
+      </Accordion>
+
+      <Accordion title="Delete is blocked">
+        The item has assignments, submissions, or SOS history. Preserve that history by deactivating it or asking the Super Admin to archive it.
+      </Accordion>
+    </AccordionGroup>
+
+    ## Verification problems
+
+    <AccordionGroup>
+      <Accordion title="A verification UUID is invalid">
+        Copy the long submission UUID from the browser address after `/submissions/`. Do not use the short visible reference.
+      </Accordion>
+
+      <Accordion title="The source submission is rejected">
+        The source must be a **Network Assessment** with **Approved** or **Verified** status.
+      </Accordion>
+
+      <Accordion title="The independent submission is rejected">
+        It must be a finalized **LV Network Assessment** with **Submitted** or **Approved** status.
+      </Accordion>
+
+      <Accordion title="Project access is required">
+        A Supervisor can review only a verification whose source belongs to an actively assigned Project. Ask an Admin to review the assignment or the request.
+      </Accordion>
+    </AccordionGroup>
+
+    ## SOS problems
+
+    <Warning>
+      If anyone is in immediate danger, contact local emergency services and the response team directly. Do not wait for the app.
+    </Warning>
+
+    <AccordionGroup>
+      <Accordion title="Location permission is required">
+        Enable location services and allow location access for the browser. If this cannot be done immediately, contact the Supervisor or emergency services directly.
+      </Accordion>
+
+      <Accordion title="The SOS could not be sent">
+        The app stores the incident on that device and retries when connectivity returns. Keep the device and browser data intact, reconnect when safe, and do not assume anyone received it until delivery is confirmed.
+      </Accordion>
+
+      <Accordion title="No active SOS recipient is configured">
+        Contact an Admin directly. The Enumerator needs a valid direct Supervisor, or an active Admin recipient must be available.
+      </Accordion>
+
+      <Accordion title="An incident cannot be acknowledged">
+        It may already have been acknowledged or may not be assigned to the current responder. Refresh the incident and check its activity timeline.
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+</Tabs>
+
+## Information to send when asking for help
+
+Share only what is needed:
+
+- Your account ID, but never your password
+- Whether you were using the mobile app or web application
+- The screen, page, or action that failed
+- Project and task names
+- Record reference or assignment details
+- Exact error message and current sync status
+- Approximate date and time
+- Whether the device was online
+- The app version, phone model, operating system, or browser when relevant
+- A permitted screenshot with sensitive information hidden where possible
+
+This information helps an Admin investigate without risking account security or creating duplicate work.

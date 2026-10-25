@@ -3,23 +3,101 @@ title: "Assignments"
 description: "Decide who does which work."
 ---
 
-An **assignment** links people to the Projects and tasks they are responsible for.
+An assignment gives one team member permission to work on one task in a client Project. A person must have an active assignment before they can collect and submit a record for that task.
+
+<Note>
+  Only Admin and Super Admin users can manage assignments.
+</Note>
+
+## Before you begin
+
+Make sure that:
+
+- The team member has an active account.
+- The client Project is published.
+- The Project Type and task are published and active.
+- The task has a published form.
+- The task is included in the client Project.
+
+## Create assignments
 
 <Steps>
-  <Step title="Choose a project">
-    Open the project.
+  <Step title="Open Assignments">
+    Select **Assignments** from the main navigation.
   </Step>
-  <Step title="Select tasks or areas">
-    Pick the work to hand out.
+  <Step title="Choose a team member">
+    Select the person who will do the work. Only active accounts are shown, and a Super Admin is not an assignment recipient.
   </Step>
-  <Step title="Choose the person">
-    Select an enumerator, and a supervisor to oversee them.
+  <Step title="Choose a client Project">
+    Select the Project. Its available Project Types and tasks appear below.
   </Step>
-  <Step title="Save">
-    The person will see the work in their app.
+  <Step title="Set an end date if needed">
+    Leave **End date** empty for ongoing work. Choose a date when access should end automatically after a fixed period.
+  </Step>
+  <Step title="Select tasks">
+    Select a Project Type to choose all its available tasks, or select individual tasks. A task marked **Already assigned** cannot be selected again for the same person and Project.
+  </Step>
+  <Step title="Finish the assignment">
+    Select **Assign selected tasks**. The new rows appear in the assignments table.
+
+    ![Screenshot 2026 10 25 At 21 55 38](/images/Screenshot-2026-10-25-at-21.55.38-1.png "Screenshot 2026 10 25 At 21 55 38")
   </Step>
 </Steps>
 
 <Tip>
-  Spread work evenly, and keep each person's areas close together to save travel time.
+  Assign only the tasks a person is expected to complete. Smaller, clear assignments make the Projects page easier to use in the field.
 </Tip>
+
+## Read the assignments table
+
+| Column | Meaning |
+| --- | --- |
+| **Team member** | The person's name and account ID |
+| **Client Project** | The engagement where the work belongs |
+| **Project Type** | The reusable work category |
+| **Task** | The specific activity assigned |
+| **Start** | When the assignment became active |
+| **End** | The last active date, or **Open** when no end date was set |
+| **Status** | **Active** or **Revoked** |
+
+## Remove an assignment
+
+1. Find the active assignment in the table.
+2. Select **Remove**.
+3. Confirm the message.
+
+Removing an assignment stops future collection for that task. Records already collected remain available.
+
+## Reinstate an assignment
+
+1. Find the row with a **Revoked** status.
+2. Select **Reinstate**.
+3. Confirm the message.
+
+The team member can use the assignment again, provided the account, Project, Project Type, task, and form are still active.
+
+## What team members see
+
+- Enumerators see Projects and tasks directly assigned to them.
+- Supervisors see their assigned Projects and tasks and can oversee submissions within their permitted scope.
+- Admins and the Super Admin can view the full published catalog, but they still need an assignment to collect a field record.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The Project is missing from the list">
+    Confirm that the client Project is published and active. Then confirm its attached Project Type and tasks are also published.
+  </Accordion>
+
+  <Accordion title="No tasks appear after selecting a Project">
+    Open **Project builder** and check that the Project has an attached Project Type, included tasks, and published task forms.
+  </Accordion>
+
+  <Accordion title="A task says Already assigned">
+    That person already has an active assignment for the same task and Project. Use the existing assignment instead of creating a duplicate.
+  </Accordion>
+
+  <Accordion title="The person cannot collect a record">
+    Confirm the account and assignment are active, the end date has not passed, and every item in the publication chain is active.
+  </Accordion>
+</AccordionGroup>

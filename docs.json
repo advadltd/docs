@@ -14,7 +14,7 @@
   "navigation": {
     "groups": [
       {
-        "group": "Start here",
+        "group": "Introduction",
         "pages": [
           "index",
           "getting-started",
@@ -35,7 +35,6 @@
           "fieldwork/projects-and-tasks",
           "fieldwork/forms-and-submissions",
           "fieldwork/approvals",
-          "fieldwork/verifications",
           "fieldwork/sos-incidents"
         ]
       },
