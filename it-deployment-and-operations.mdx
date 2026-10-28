@@ -78,6 +78,10 @@ The Vercel project should be connected to the application repository. Vercel cre
   </Step>
   <Step title="Verify the release">
     In Vercel, confirm that the deployment is marked **Ready**. Open the application, sign in with an authorised test account, and check `/api/v1/health` and the affected workflow.
+
+    <Note>
+      We use [**LoggerAI**](https://loggerai.uk) to catch and solve issues before users complain. Unlike traditional logs, it links front-end user actions directly to the exact line of back-end server code that failed—complete with an AI-generated root cause analysis and instant Slack alerts.
+    </Note>
   </Step>
 </Steps>
 
@@ -94,10 +98,6 @@ Open the Vercel project, then go to **Settings → Environment Variables**. Conf
 | `JWT_SECRET` | Yes | Signs application login tokens; must be at least 32 characters | Sensitive; unique per environment |
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical public application origin used for social metadata, for example `https://field.example.com` | Production |
 | `JWT_TTL` | Optional | Login lifetime; defaults to `12h` | All applicable environments |
-| `LOGGERAI_KEY` | Optional | Server-side error and performance monitoring | Sensitive; Production |
-| `LOGGERAI_RELEASE` | Optional | Release name or deployment Git SHA for monitoring | Production |
-|  |  |  |  |
-|  |  |  |  |
 
 Find the Supabase project URL and keys in the project's **Connect** dialog or **Project Settings → API Keys**. This codebase currently expects the legacy anon key in `SUPABASE_ANON_KEY`; do not replace it with a secret or `service_role` key without a reviewed code and security migration.
 
@@ -217,7 +217,7 @@ The source pages in this repository are under `docs/mintlify/`. They are MDX fil
 
 <Steps>
   <Step title="Open the project">
-    Sign in to the company Mintlify dashboard and select the Advad documentation project.
+    Sign in to the company Mintlify [dashboard](https://app.mintlify.com/advad-limited/advad-limited) and select the Advad documentation project.
   </Step>
   <Step title="Open Editor">
     Select **Editor** in the left sidebar. If prompted, an administrator must install or authorise the Mintlify GitHub App for the documentation repository.
@@ -236,17 +236,6 @@ The source pages in this repository are under `docs/mintlify/`. They are MDX fil
   </Step>
 </Steps>
 
-To add this page to a Mintlify site, add its path to the appropriate group in the site's `docs.json`. For example:
-
-```json
-{
-  "group": "IT operations",
-  "pages": ["it-deployment-and-operations"]
-}
-```
-
-If the Mintlify repository stores these files in a `docs/` folder, use its repository-relative page path instead. The `docs.json` used by the live Mintlify site is not stored in this application repository, so the navigation change must be made in the connected documentation repository or Mintlify editor.
-
 <Tip>
   Update the user guide in the same pull request or release window as any user-visible workflow change. Documentation-only changes can be published independently after review.
 </Tip>
@@ -260,8 +249,6 @@ Keep this information in the company's protected IT register and review it quart
 - Supabase organisation, project reference, plan, backup retention, and restore-test date.
 - Domain registrar, DNS provider, renewal owner, and renewal date.
 - Mintlify organisation, project, deployment branch, and GitHub App owner.
-- Monitoring destination and incident contacts.
-- Date of the last access review, secret rotation, recovery drill, and documentation review.
 
 ## Official platform references
 
