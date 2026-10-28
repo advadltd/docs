@@ -59,6 +59,12 @@
           "help/troubleshooting",
           "help/glossary"
         ]
+      },
+      {
+        "group": "IT",
+        "pages": [
+          "it-deployment-and-operations"
+        ]
       }
     ]
   },

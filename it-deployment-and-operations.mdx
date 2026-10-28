@@ -1,0 +1,276 @@
+---
+title: "IT deployment and operations"
+description: "Operate the Advad platform on Vercel and Supabase, manage its domain and configuration, and maintain the Mintlify user guide."
+icon:
+  name: "🖥️"
+  style: "regular"
+  library: "fontawesome"
+---
+
+This guide is for the company IT team responsible for the production application, database, domain, access, backups, and documentation.
+
+<CardGroup cols={2}>
+  <Card title="Open the user guide" icon="book-open" href="https://advad-limited.mintlify.site/docs">
+    Read the role-based instructions used by Admins, Supervisors, and field teams.
+  </Card>
+
+  <Card title="Review IT ownership" icon="clipboard-check" href="#ownership-checklist">
+    Confirm the company controls every production account, domain, secret, and recovery process.
+  </Card>
+</CardGroup>
+
+## System overview
+
+The platform is one Next.js application. Vercel builds and runs the web interface and the server-side API. The server-side API reads and writes data through Supabase's HTTPS Data API.
+
+The application also publishes an interactive technical API reference at `/api-docs` on its production domain.
+
+```text
+Browser or mobile client
+          |
+          | HTTPS
+          v
+Vercel: Next.js web app and /api/v1 routes
+          |
+          | Supabase URL + API key
+          v
+Supabase: PostgreSQL database + private submission-evidence storage
+```
+
+| Component | Responsibility | Where IT manages it |
+| --- | --- | --- |
+| GitHub repository | Application source, database migrations, and documentation source | GitHub |
+| Vercel project | Builds and hosts the Next.js application and API | Vercel dashboard |
+| Supabase project | PostgreSQL data, Data API, and private photo evidence | Supabase dashboard |
+| Domain and DNS | Gives the application its company web address | Vercel and the domain registrar/DNS provider |
+| Mintlify project | Publishes the user guide | Mintlify dashboard and its connected Git repository |
+
+<Info>
+  The application uses its own user accounts and bearer tokens. It does not use Supabase Auth for application sign-in. Browser and mobile clients call the Next.js API; they should not query Supabase directly.
+</Info>
+
+## Access the IT team should hold
+
+Keep access in company-controlled accounts and assign at least two authorised maintainers:
+
+- Administrator access to the GitHub repository.
+- Owner or administrator access to the Vercel team and project.
+- Owner or administrator access to the Supabase organisation and production project.
+- Access to the domain registrar and DNS provider.
+- Administrator or editor access to the Mintlify project and its connected Git repository.
+- Access to the company password manager containing recovery details and secrets.
+
+Require multi-factor authentication where available. Do not share personal accounts, database passwords, access tokens, or `.env` files through chat or email.
+
+## How production deployment works
+
+The Vercel project should be connected to the application repository. Vercel creates a preview deployment for changes on non-production branches and a production deployment when a change reaches the configured production branch, normally `main`.
+
+<Steps>
+  <Step title="Create and review a change">
+    Work on a Git branch and open a pull request. Run `npm test`, `npm run typecheck`, and `npm run build` before approval.
+  </Step>
+  <Step title="Test the preview">
+    Open the Vercel preview URL. Check sign-in and the changed workflow without using production field data if the preview points to production Supabase.
+  </Step>
+  <Step title="Merge to production">
+    Merge the approved pull request into the production branch. Vercel automatically starts a production deployment.
+  </Step>
+  <Step title="Verify the release">
+    In Vercel, confirm that the deployment is marked **Ready**. Open the application, sign in with an authorised test account, and check `/api/v1/health` and the affected workflow.
+  </Step>
+</Steps>
+
+## Configure Vercel environment variables
+
+Open the Vercel project, then go to **Settings → Environment Variables**. Configure each value for the correct environment. A changed variable only affects new deployments, so redeploy after saving it.
+
+![Screenshot 2026 10 28 At 11 32 53](/images/Screenshot-2026-10-28-at-11.32.53.png "Screenshot 2026 10 28 At 11 32 53")
+
+| Variable | Required | Purpose | Recommended scope |
+| --- | --- | --- | --- |
+| `SUPABASE_URL` | Yes | HTTPS URL of the intended Supabase project | Production; use a separate value for Preview |
+| `SUPABASE_ANON_KEY` | Yes | Legacy Supabase anon key used by this application's server-side Data API client | Production; use a separate value for Preview |
+| `JWT_SECRET` | Yes | Signs application login tokens; must be at least 32 characters | Sensitive; unique per environment |
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical public application origin used for social metadata, for example `https://field.example.com` | Production |
+| `JWT_TTL` | Optional | Login lifetime; defaults to `12h` | All applicable environments |
+| `LOGGERAI_KEY` | Optional | Server-side error and performance monitoring | Sensitive; Production |
+| `LOGGERAI_RELEASE` | Optional | Release name or deployment Git SHA for monitoring | Production |
+|  |  |  |  |
+|  |  |  |  |
+
+Find the Supabase project URL and keys in the project's **Connect** dialog or **Project Settings → API Keys**. This codebase currently expects the legacy anon key in `SUPABASE_ANON_KEY`; do not replace it with a secret or `service_role` key without a reviewed code and security migration.
+
+Generate `JWT_SECRET` with a cryptographically secure password generator. Rotating it immediately signs every user out, because existing login tokens can no longer be verified. Plan the change, update every active app environment, redeploy, and tell users to sign in again.
+
+<Warning>
+  Never put `JWT_SECRET`, a Supabase database password, a secret/service-role key, or `PUSH_GATEWAY_TOKEN` in Git, an MDX page, a ticket, or a screenshot. Vercel is the source of runtime configuration; the company password manager is the recovery source.
+</Warning>
+
+## How Supabase is used
+
+The `supabase/migrations/` directory is the ordered history of the production schema. It creates the platform's users, projects, project types, tasks, forms, assignments, submissions, approvals, verifications, SOS incidents, audit records, and related indexes and policies.
+
+Supabase Storage contains a private bucket named `submission-evidence`. The application issues short-lived signed upload and download URLs for evidence. The bucket is not intended to be made public.
+
+### Safely change the database
+
+<Steps>
+  <Step title="Create a migration">
+    Add a new timestamped SQL file under `supabase/migrations/`. Never edit an already-applied migration to represent a new production change.
+  </Step>
+  <Step title="Review and test">
+    Review destructive statements carefully. Apply the full migration chain to a disposable or local database and test the matching application branch.
+  </Step>
+  <Step title="Back up production">
+    Confirm the latest usable backup and take an additional logical backup when the risk warrants it. Remember that database backups do not restore deleted Storage objects.
+  </Step>
+  <Step title="Apply before dependent app code">
+    Apply the migration to the target Supabase project before deploying code that requires the new schema. For backward-incompatible work, use an expand-and-contract migration over separate releases.
+  </Step>
+  <Step title="Verify">
+    Check the Supabase logs and Table Editor, then verify `/api/v1/health` and the affected application workflow.
+  </Step>
+</Steps>
+
+The team may apply reviewed migrations with the Supabase CLI:
+
+```bash
+supabase login
+supabase link --project-ref YOUR_PROJECT_REF
+supabase migration list
+supabase db push --dry-run
+supabase db push
+```
+
+The project reference appears in the Supabase dashboard URL. Treat `supabase db reset --linked` as destructive and never run it against production.
+
+<Note>
+  The current repository also documents a manual SQL Editor setup. For continuing maintenance, prefer a reviewed CLI or automated migration workflow so the migration history remains visible and repeatable.
+</Note>
+
+### Backups and evidence
+
+- Open **Supabase → Database → Backups** and confirm the retention available on the current plan.
+- Schedule restore drills and record the result; an untested backup is not a complete recovery plan.
+- Keep an independent plan for the private `submission-evidence` bucket because database backups contain Storage metadata, not the stored image objects themselves.
+- Before restoring, define the recovery point, expected data loss, maintenance window, and the person authorised to approve downtime.
+- Never delete the Supabase project as a troubleshooting step. Project deletion also permanently removes its associated platform backups.
+
+## Set the custom application domain on Vercel
+
+<Steps>
+  <Step title="Add the domain">
+    Open the Vercel project and go to **Settings → Domains**. Enter the intended apex domain, such as `advadltd.com`, or subdomain, such as `field.advadltd.com`.
+
+    ![Screenshot 2026 10 28 At 11 19 21](/images/Screenshot-2026-10-28-at-11.19.21.png "Screenshot 2026 10 28 At 11 19 21")
+
+    ![Screenshot 2026 10 28 At 11 20 14](/images/Screenshot-2026-10-28-at-11.20.14.png "Screenshot 2026 10 28 At 11 20 14")
+
+    ![Screenshot 2026 10 28 At 11 21 47](/images/Screenshot-2026-10-28-at-11.21.47.png "Screenshot 2026 10 28 At 11 21 47")
+
+    ![Screenshot 2026 10 28 At 11 28 55](/images/Screenshot-2026-10-28-at-11.28.55.png "Screenshot 2026 10 28 At 11 28 55")
+  </Step>
+  <Step title="Copy Vercel's exact DNS instruction">
+    Vercel will show the record required for that domain. An apex domain normally uses an A record; a subdomain normally uses a CNAME. Use the value displayed by Vercel rather than copying a value from an old guide.
+
+    ![Screenshot 2026 10 28 At 11 29 24](/images/Screenshot-2026-10-28-at-11.29.24.png "Screenshot 2026 10 28 At 11 29 24")
+  </Step>
+  <Step title="Update DNS">
+    At the current DNS provider, add or replace only the required record. Preserve mail, verification, and other unrelated records. If Vercel asks for ownership verification, add its TXT record as well.
+  </Step>
+  <Step title="Wait for verification">
+    Return to Vercel and wait until the domain is marked valid. DNS updates may take time to propagate. Vercel provisions HTTPS after the DNS configuration is valid.
+  </Step>
+  <Step title="Update the canonical URL">
+    Set `NEXT_PUBLIC_SITE_URL` to the final `https://` address, redeploy Production, and check sign-in, page loading, API calls, and `/api/v1/health` through the new domain.
+  </Step>
+</Steps>
+
+Decide whether the apex or `www`/application subdomain is canonical, and configure the other address as a redirect in Vercel. Do not change nameservers unless IT has inventoried and can recreate every existing DNS record, especially email records.
+
+## Routine operations
+
+### After every application release
+
+1. Confirm the Vercel deployment is **Ready** and assigned to the production domain.
+2. Open `/api/v1/health` on the production domain.
+3. Sign in with an authorised test account and check the changed workflow.
+4. Review Vercel runtime logs and Supabase logs for new errors.
+5. Record the release commit, database migration, verifier, and result in the IT change log.
+
+### If a release fails
+
+- If the build fails, open the Vercel deployment logs, fix the source or configuration on a branch, and redeploy. Do not repeatedly redeploy an unchanged failure.
+- If the app starts but cannot access data, confirm the Vercel environment, `SUPABASE_URL`, matching key, Supabase project health, and whether all required migrations were applied.
+- If only the custom domain fails, test the generated `vercel.app` URL. If that works, inspect the domain status and DNS records in Vercel.
+- If a new application release is faulty, use Vercel's rollback/redeployment controls to restore the last known-good application deployment.
+- An application rollback does not undo a database migration. Use a reviewed forward migration to repair schema or data; do not improvise destructive SQL in production.
+
+## Read and maintain the user guide
+
+The published user guide is at [advad-limited.mintlify.site/docs](https://advad-limited.mintlify.site/docs). It explains role permissions, projects and tasks, assignments, team management, forms and submissions, verification, and common troubleshooting. IT should use it to understand expected behaviour before treating a user question as a technical incident.
+
+The source pages in this repository are under `docs/mintlify/`. They are MDX files: Markdown content plus Mintlify components such as `<Steps>`, `<Card>`, and `<Warning>`.
+
+### Edit documentation in the Mintlify web editor
+
+<Steps>
+  <Step title="Open the project">
+    Sign in to the company Mintlify dashboard and select the Advad documentation project.
+  </Step>
+  <Step title="Open Editor">
+    Select **Editor** in the left sidebar. If prompted, an administrator must install or authorise the Mintlify GitHub App for the documentation repository.
+  </Step>
+  <Step title="Create a branch">
+    For anything beyond a minor typo, create a documentation branch so another person can review the change before it reaches the live guide.
+  </Step>
+  <Step title="Edit and preview">
+    Choose the required `.mdx` file from the file explorer. The editor autosaves drafts. Use the preview to check headings, links, steps, cards, and warnings on desktop and mobile widths.
+  </Step>
+  <Step title="Publish or request review">
+    Select **Publish**. On a protected or feature branch, save the change and create a pull request. After approval, merge it into the Mintlify deployment branch; this triggers the live documentation deployment.
+  </Step>
+  <Step title="Verify the live guide">
+    Open the published user guide in a private browser window, locate the changed page through navigation and search, and test every changed link.
+  </Step>
+</Steps>
+
+To add this page to a Mintlify site, add its path to the appropriate group in the site's `docs.json`. For example:
+
+```json
+{
+  "group": "IT operations",
+  "pages": ["it-deployment-and-operations"]
+}
+```
+
+If the Mintlify repository stores these files in a `docs/` folder, use its repository-relative page path instead. The `docs.json` used by the live Mintlify site is not stored in this application repository, so the navigation change must be made in the connected documentation repository or Mintlify editor.
+
+<Tip>
+  Update the user guide in the same pull request or release window as any user-visible workflow change. Documentation-only changes can be published independently after review.
+</Tip>
+
+## Ownership checklist
+
+Keep this information in the company's protected IT register and review it quarterly:
+
+- GitHub repository owner, production branch, and branch protection rules.
+- Vercel team, project, production branch, domain, and environment-variable owners.
+- Supabase organisation, project reference, plan, backup retention, and restore-test date.
+- Domain registrar, DNS provider, renewal owner, and renewal date.
+- Mintlify organisation, project, deployment branch, and GitHub App owner.
+- Monitoring destination and incident contacts.
+- Date of the last access review, secret rotation, recovery drill, and documentation review.
+
+## Official platform references
+
+- [Vercel Git deployments](https://vercel.com/docs/git)
+- [Vercel environment variables](https://vercel.com/docs/environment-variables)
+- [Vercel custom domains](https://vercel.com/docs/domains/working-with-domains/add-a-domain)
+- [Supabase database migrations](https://supabase.com/docs/guides/deployment/database-migrations)
+- [Supabase API keys](https://supabase.com/docs/guides/getting-started/api-keys)
+- [Supabase database backups](https://supabase.com/docs/guides/platform/backups)
+- [Mintlify web editor quickstart](https://mintlify.com/docs/quickstart)
+- [Mintlify branching and publishing](https://www.mintlify.com/docs/editor/branching-and-publishing)
+- [Mintlify navigation](https://mintlify.com/docs/navigation)
